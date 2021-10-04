@@ -11,26 +11,40 @@ router.get("/tasks", async (req, res) => {
 });
 
 // Create a new task and save it to the database
-router.post("/tasks", async (req, res) => {
-  const { error } = validateTask(req.body);
-  if (error) return res.status(400).send(error.details[0].message);
+// router.post("/tasks", async (req, res) => {
+//   console.log(req.body);
+//   const tasks = req.body;
+//   tasks.forEach(async (task) => {
+//     try {
+//       // const { error } = validateTask(task);
+//       // if (error) return res.status(400).send(error.details[0].message);
+//       const newTask = new Task({
+//         title: task.title,
+//         description: task.description,
+//         completed: task.completed,
+//       });
 
-  const task = new Task({
-    description: req.body.description,
-    completed: req.body.completed,
-    title: req.body.title,
-    quantity: req.body.quantity,
-  });
+//       if (task._id) {
+//         await Task.findByIdAndUpdate(task._id, newTask);
+//       } else {
+//         await newTask.save();
+//       }      
+//     }
+//     catch (ex) {
+//       console.log(ex.message);
+//     }
+//   })
+
+// });
+
+router.post("/tasks", async(req, res) => {
+  const task = new Task(req.body);
   await task.save();
-  res.json({
-    status: "Task saved",
-  });
-});
+  res.send(task);
+})
 
 // Update a task in the database
 router.patch("/tasks/:id", async (req, res) => {
-  const { error } = validateTask(req.body);
-  if (error) return res.status(400).send(error.details[0].message);
 
   try {
     await Task.findByIdAndUpdate(req.params.id, {

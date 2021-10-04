@@ -3,7 +3,7 @@ const mongoose = require('mongoose')
 const routes = require('./routes');
 
 mongoose
-    .connect('mongodb://localhost/veritone', { useNewUrlParser: true })
+    .connect('mongodb://localhost/veritonedemodb', { useNewUrlParser: true })
     .then(() => console.log('Connected to MongoDB'))
     .then(() => {
         const app = express();

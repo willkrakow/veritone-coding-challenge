@@ -1,14 +1,14 @@
 {
   "name": "veritone-demo",
   "version": "1.0.0",
-  "description": "",
+  "description": "A sample full-stack Node.js/React application for managing a grocery list.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node index.js"
   },
   "keywords": [],
-  "author": "",
+  "author": "William Krakow",
   "license": "ISC",
   "dependencies": {
     "express": "^4.17.1",
