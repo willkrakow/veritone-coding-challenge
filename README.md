@@ -1,5 +1,7 @@
-[# Veritone Demo app
+# Veritone Demo app
 A sample full-stack Node.js/React application for managing a grocery list.
+**By William Krakow**
+Submitted October 2, 2021
 
 ## Tech stack
 ### Back end
