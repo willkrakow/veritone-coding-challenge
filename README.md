@@ -12,21 +12,19 @@ A sample full-stack Node.js/React application for managing a grocery list.
 - React - UI library
 - Material-UI - Component library
 
-## Todo
 ### HTTP methods
-- [] GET tasks
-- [] GET task by id
-- [] POST new task
-- [] PATCH existing task
-- [] DELETE task
+- GET tasks
+- GET task by id
+- POST new task
+- PATCH existing task
+- DELETE task
 
-### Front end components
-- [] Layout
-- [] Placeholder box ("Add your first item")
-- [] Task table
-- [] Task row
-- [] Add task form
-- [] Edit task form
-- [] Delete task confirmation modal
+### Front end features
+- Placeholder box ("Add your first item")
+- Task table
+- Task row
+- Add task form
+- Edit task form
+- Delete task confirmation modal
 
 
