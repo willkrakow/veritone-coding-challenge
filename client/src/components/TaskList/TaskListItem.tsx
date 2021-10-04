@@ -1,13 +1,21 @@
-import React from 'react'
-import { ListItem, ListItemText, IconButton, ListItemButton, ListItemIcon, Checkbox } from '@mui/material'
-import { EditOutlined, DeleteOutline } from '@mui/icons-material'
-import { Task } from '../../types'
+import React from "react";
+import {
+  ListItem,
+  ListItemText,
+  IconButton,
+  ListItemButton,
+  ListItemIcon,
+  Checkbox,
+} from "@mui/material";
+import { EditOutlined, DeleteOutline } from "@mui/icons-material";
+import { Task } from "../../types";
+import DeleteConfirmation from "../DeleteConfirmation";
 
 interface Props {
-    task: Task
-    handleEditTask: (task: Task) => void
-    handleDeleteTask: (task: Task) => void
-    handleCompleteTask: (task: Task) => void
+  task: Task;
+  handleEditTask: (task: Task) => void;
+  handleDeleteTask: (task: Task) => void;
+  handleCompleteTask: (task: Task) => void;
 }
 
 const TaskListItem = ({
@@ -16,6 +24,8 @@ const TaskListItem = ({
   handleDeleteTask,
   handleCompleteTask,
 }: Props): JSX.Element => {
+  const [modalOpen, setModalOpen] = React.useState(false);
+
   return (
     <ListItem
       sx={{
@@ -35,12 +45,18 @@ const TaskListItem = ({
           <IconButton size="small" onClick={() => handleEditTask(task)}>
             <EditOutlined />
           </IconButton>
-          <IconButton size="small" onClick={() => handleDeleteTask(task)}>
+          <IconButton size="small" onClick={() => setModalOpen(true)}>
             <DeleteOutline />
           </IconButton>
         </>
       }
     >
+      <DeleteConfirmation
+        task={task}
+        open={modalOpen}
+        handleClose={() => setModalOpen(false)}
+        handleDelete={handleDeleteTask}
+      />
       <ListItemButton
         dense
         role={undefined}
@@ -76,7 +92,6 @@ const TaskListItem = ({
       </ListItemButton>
     </ListItem>
   );
-}
+};
 
-
-export default TaskListItem
+export default TaskListItem;

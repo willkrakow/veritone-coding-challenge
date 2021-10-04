@@ -1,6 +1,5 @@
 import React from 'react'
-import { List, ListItem, ListItemButton, ListItemText, ListItemIcon, Checkbox, IconButton} from '@mui/material'
-import { EditOutlined, DeleteOutline } from '@mui/icons-material'
+import { List, } from '@mui/material'
 import { Task } from '../../types'
 import TaskListItem from './TaskListItem'
 
